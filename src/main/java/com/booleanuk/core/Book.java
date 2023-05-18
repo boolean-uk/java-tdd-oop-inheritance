@@ -3,7 +3,9 @@ package com.booleanuk.core;
 public class Book extends ReadingItem{
     public Book(String title) {
         super(title);
+
     }
+
 //    String title;
 //
 //    boolean onLoan = false;

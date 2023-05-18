@@ -30,7 +30,7 @@ public class Library {
     public String checkInReadingItem(String title) {
         List<ReadingItem> filtered = this.readingItems.stream()
                 // lambders: .filter works like a loop
-                .filter(readingItem -> readingItem.title.equals(title))
+                .filter(readingItem -> readingItem.getTitle().equals(title))
                 .toList();
 
         if (filtered.size() < 1) {
@@ -42,7 +42,7 @@ public class Library {
 
     public String checkOutReadingItem(String title) {
         List<ReadingItem> filtered = this.readingItems.stream()
-                .filter(readingItem -> readingItem.title.equals(title))
+                .filter(readingItem -> readingItem.getTitle().equals(title))
                 .toList();
 
         if (filtered.size() < 1) {

@@ -1,12 +1,12 @@
 package com.booleanuk.core;
 
 public class ReadingItem {
-    String title;
+    protected String title;
 
-    boolean onLoan = false;
+    protected boolean onLoan = false;
 
     public ReadingItem(String title) {
-        this.title = title;
+        this.setTitle(title);
     }
 
     public boolean isOnLoan() {
@@ -18,7 +18,7 @@ public class ReadingItem {
             return "item is not currently on loan";
         }
 
-        this.onLoan = false;
+        this.setOnLoan(false);
 
         return "item has been checked in";
     }
@@ -28,10 +28,21 @@ public class ReadingItem {
             return "item is currently on loan";
         }
 
-        this.onLoan = true;
+        this.setOnLoan(true);
 
         return "item has been checked out";
     }
 
 
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setOnLoan(boolean onLoan) {
+        this.onLoan = onLoan;
+    }
 }

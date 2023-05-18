@@ -9,7 +9,7 @@ public class LibraryTest {
     public void testAddToStock() {
         Library library = new Library();
         library.addToStock(new Newspaper("Daily News"));
-        Assertions.assertEquals("Daily News", library.readingItems.get(0).title);
+        Assertions.assertEquals("Daily News", library.readingItems.get(0).getTitle());
     }
 
     @Test
