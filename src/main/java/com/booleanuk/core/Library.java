@@ -2,6 +2,7 @@ package com.booleanuk.core;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Library {
 //    List<Article> articles;
@@ -33,8 +34,7 @@ public class Library {
     // is called a lambda expression (https://www.w3schools.com/java/java_lambda.asp)
     public String checkInReadingItem(String title) {
         List<ReadingItem> filtered = this.readingItems.stream()
-                .filter(readingItem -> readingItem.getTitle().equals(title))
-                .toList();
+                .filter(readingItem -> readingItem.getTitle().equals(title)).collect(Collectors.toList());
 
         if (filtered.size() < 1) {
             return "item is not part of the library's collection";
@@ -45,8 +45,7 @@ public class Library {
 
     public String checkOutReadingItem(String title) {
         List<ReadingItem> filtered = this.readingItems.stream()
-                .filter(readingItem -> readingItem.getTitle().equals(title))
-                .toList();
+                .filter(readingItem -> readingItem.getTitle().equals(title)).collect(Collectors.toList());
 
         if (filtered.size() < 1) {
             return "item is not part of the library's collection";
