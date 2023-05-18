@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Main {
     public static void main(String[] args) {
         ArrayList<Vehicle> traffic = new ArrayList<>();
-        traffic.add(new Car(100));
+        //traffic.add(new Car(100));
         traffic.add(new Plane(500));
         traffic.add(new Bike(30));
         traffic.add(new Car(70));
@@ -15,8 +15,12 @@ public class Main {
 //        Vehicle porsche = new Porsche();
 //        System.out.println(porsche.getClass());
 //        Vehicle vehicle = getVehicle();
-        Vehicle vehicle = new Car(100);
-        System.out.println(vehicle.getClass());
+        Vehicle vehicle = new Plane(5);
+        System.out.println(vehicle.move());
 
+//        System.out.println(Car.getCarName());
+//        System.out.println(SportsCar.getCarName());
+//        System.out.println(Porsche.getCarName());
+//        System.out.println(SportsCar.getCarName());
     }
 }

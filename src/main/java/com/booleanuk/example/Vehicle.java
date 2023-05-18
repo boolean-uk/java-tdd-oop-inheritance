@@ -1,7 +1,9 @@
 package com.booleanuk.example;
 
 public class Vehicle {
-    protected int topSPeed;
+    // abstract is a kind of a interface but then with more details in it.
+    int topSPeed;
+//    int topSPeed = 0;
 
     public Vehicle (int topSPeed){
         this.topSPeed = topSPeed;
