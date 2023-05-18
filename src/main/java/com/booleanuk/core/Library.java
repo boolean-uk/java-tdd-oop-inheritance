@@ -30,7 +30,7 @@ public class Library {
     public String checkOutItem(LibraryItem item){
         List<LibraryItem> filtered = this.items.stream()
                 .filter(i -> i.title.equals(item.title))
-                .toList();
+                .collect(Collectors.toList());
 
         if (filtered.size() < 1) {
             return "item is not part of the library's collection";
