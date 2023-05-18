@@ -2,6 +2,7 @@ package com.booleanuk.core;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Library {
 //    List<Article> articles;
@@ -102,7 +103,7 @@ public class Library {
     public String checkInMedia(String title) {
         List<Media> filtered = this.media.stream()
                 .filter(media -> media.title.equals(title))
-                .toList();
+                .collect(Collectors.toList());
 
         if (filtered.size() < 1) {
             return "item is not part of the library's collection";
@@ -114,7 +115,7 @@ public class Library {
     public String checkOutMedia(String title) {
         List<Media> filtered = this.media.stream()
                 .filter(media -> media.title.equals(title))
-                .toList();
+                .collect(Collectors.toList());
 
         if (filtered.size() < 1) {
             return "item is not part of the library's collection";
