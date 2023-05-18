@@ -14,12 +14,11 @@ public class Library {
         this.items.add(item);
     }
 
-
     // The following methods may contain code that you are unfamiliar with. The strange syntax of article -> something
     // is called a lambda expression (https://www.w3schools.com/java/java_lambda.asp)
     public String checkInItem(String title) {
         for(Item item : this.items){
-            if(item.title.equals(title)){
+            if(item.getTitle().equals(title)){
                 return item.checkIn();
             }
         }
@@ -28,7 +27,7 @@ public class Library {
 
     public String checkOutItem(String title) {
         for(Item item : this.items){
-            if(item.title.equals(title)){
+            if(item.getTitle().equals(title)){
                 return item.checkOut();
             }
         }

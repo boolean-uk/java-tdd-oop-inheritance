@@ -8,7 +8,8 @@ public class LibraryTest {
     @Test
     public void testAddArticle(){
         Library library = new Library();
-        Article article = new Article(("JUnit Rocks"));
+        Author author = new Author("A. Author", "author@author.com", "www.author.com");
+        Article article = new Article("JUnit Rocks", author);
         library.addToStock(article);
 
         Assertions.assertTrue(library.items.contains(article));
@@ -17,7 +18,8 @@ public class LibraryTest {
     @Test
     public void testAddBook(){
         Library library = new Library();
-        Book book = new Book(("Java stories"));
+        Author author = new Author("A. Author", "author@author.com", "www.author.com");
+        Book book = new Book(("Java stories"), author);
         library.addToStock(book);
 
         Assertions.assertTrue(library.items.contains(book));
@@ -35,23 +37,25 @@ public class LibraryTest {
     @Test
     public void testCheckInAndOutArticle(){
         Library library = new Library();
-        Article article = new Article(("JUnit Rocks"));
+        Author author = new Author("A. Author", "author@author.com", "www.author.com");
+        Article article = new Article("JUnit Rocks", author);
         library.addToStock(article);
-        library.checkOutItem(article.title);
+        library.checkOutItem(article.getTitle());
         Assertions.assertTrue(article.isOnLoan());
-        library.checkInItem(article.title);
+        library.checkInItem(article.getTitle());
         Assertions.assertFalse(article.isOnLoan());
     }
 
     @Test
     public void testCheckInAndOutBook(){
         Library library = new Library();
-        Book book = new Book(("Java stories"));
+        Author author = new Author("A. Author", "author@author.com", "www.author.com");
+        Book book = new Book(("Java stories"), author);
         library.addToStock(book);
 
-        library.checkOutItem(book.title);
+        library.checkOutItem(book.getTitle());
         Assertions.assertTrue(book.isOnLoan());
-        library.checkInItem(book.title);
+        library.checkInItem(book.getTitle());
         Assertions.assertFalse(book.isOnLoan());
     }
 
@@ -61,8 +65,8 @@ public class LibraryTest {
         Newspaper newspaper = new Newspaper(("Java Daily"));
         library.addToStock(newspaper);
 
-        Assertions.assertEquals("newspapers are not available for loan", library.checkInItem(newspaper.title));
-        Assertions.assertEquals("newspapers are not available for loan", library.checkInItem(newspaper.title));
+        Assertions.assertEquals("newspapers are not available for loan", library.checkInItem(newspaper.getTitle()));
+        Assertions.assertEquals("newspapers are not available for loan", library.checkInItem(newspaper.getTitle()));
     }
 
 
