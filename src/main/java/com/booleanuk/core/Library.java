@@ -1,5 +1,6 @@
 package com.booleanuk.core;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Library {
@@ -7,7 +8,7 @@ public class Library {
 //    List<Book> books;
 //    List<Newspaper> newspapers;
 
-    List<ReadingItem> readingItems;
+    List<ReadingItem> readingItems = new ArrayList<>();
 
     public void addToStock(ReadingItem item) {
         this.readingItems.add(item);
