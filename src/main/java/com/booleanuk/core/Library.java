@@ -2,6 +2,7 @@ package com.booleanuk.core;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Library {
 
@@ -18,7 +19,7 @@ public class Library {
     public String checkInItem(LibraryItem item){
         List<LibraryItem> filtered = this.items.stream()
                 .filter(i -> i.equals(item.title))
-                .toList();
+                .collect(Collectors.toList());
 
         if (filtered.size() < 1) {
             return "item is not part of the library's collection";
