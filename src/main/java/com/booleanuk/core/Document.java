@@ -1,6 +1,6 @@
 package com.booleanuk.core;
 
-public class Document {
+public abstract class Document {
     String title;
     boolean onLoan;
 

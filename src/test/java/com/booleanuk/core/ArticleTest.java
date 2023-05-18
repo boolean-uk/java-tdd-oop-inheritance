@@ -32,4 +32,16 @@ class ArticleTest {
 
         Assertions.assertEquals("item is not currently on loan", article.checkIn());
     }
+
+    @Test
+    public void shouldPrintAuthor(){
+        Article article = new Article("JUnit Rocks",
+                new Author("Dave Ames",
+                        "https:boolean.uk.com", "697745934", "daveamos@boolean.com"));
+        String expectedPhone = "697745934";
+        Assertions.assertEquals(expectedPhone, article.author.contactInfo.phoneNumber);
+
+        System.out.println(article.author);
+
+    }
 }

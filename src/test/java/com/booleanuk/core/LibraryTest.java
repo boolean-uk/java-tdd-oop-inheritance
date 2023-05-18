@@ -18,6 +18,8 @@ public class LibraryTest {
         Document book1 = new Book("Java for Dummies: Limited Edition");
         Document article1 = new Article("Java Streams. Should we use them?");
         Document newspaper1 = new Newspaper("Programmers News");
+
+
         library.addToStock(book1);
         library.addToStock(article1);
         library.addToStock(newspaper1);
