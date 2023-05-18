@@ -1,11 +1,7 @@
 package com.booleanuk.core;
 
-public class Article extends LibraryItem{
-
-
-    public Article(String title) {
-        super(title);
+public class Article extends AuthorableLibraryItem {
+    public Article(Author author, String title) {
+        super(author, title);
     }
-
-
 }
