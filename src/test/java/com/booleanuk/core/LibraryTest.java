@@ -7,7 +7,7 @@ public class LibraryTest {
     @Test
     void checkInMediaShouldSucceed() {
         Library library = new Library();
-        library.addToStock(new Book("JUnit Rocks"));
+        library.addToStock(new Book("JUnit Rocks", new Author("Lesli Lawrence", "leslie@email.com", "www.leslie.com")));
         Assertions.assertEquals("item is not currently on loan", library.checkInMedia("JUnit Rocks"));
     }
     @Test
@@ -17,7 +17,7 @@ public class LibraryTest {
     @Test
     void checkOutMediaShouldSucceed() {
         Library library = new Library();
-        library.addToStock(new Book("JUnit Rocks"));
+        library.addToStock(new Book("JUnit Rocks", new Author("Lesli Lawrence", "leslie@email.com", "www.leslie.com")));
         Assertions.assertEquals("item has been checked out", library.checkOutMedia("JUnit Rocks"));
     }
     @Test
