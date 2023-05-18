@@ -6,6 +6,9 @@ public class LibraryItem {
     public LibraryItem(String title){
         this.title = title;
     }
+    public LibraryItem(){
+
+    }
     public boolean isOnLoan() {
         return onLoan;
     }
