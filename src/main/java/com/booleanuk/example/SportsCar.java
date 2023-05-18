@@ -5,4 +5,10 @@ public class SportsCar extends Car{
         super(150);
 
     }
+
+    public boolean turboChargerOn(){
+        return false;
+    }
+
+
 }
