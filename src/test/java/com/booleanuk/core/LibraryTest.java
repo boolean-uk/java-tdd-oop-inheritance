@@ -21,7 +21,8 @@ public class LibraryTest {
         Assertions.assertEquals("newspapers are not available for loan", library.checkInReadingItem("Daily News"));
 
         //Test for checking in book that is not on loan
-        library.addToStock(new Book("Harry Potter"));
+        library.addToStock(new Book("Harry Potter", new Author("JK Rowling", "info@jkrowling.com",
+                "https://www.jkrowling.com")));
         Assertions.assertEquals("item is not currently on loan", library.checkInReadingItem("Harry Potter"));
 
         //Test for checking out book that is not on loan

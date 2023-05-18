@@ -8,7 +8,11 @@ public class Library {
 //    List<Book> books;
 //    List<Newspaper> newspapers;
 
-    List<ReadingItem> readingItems = new ArrayList<>();
+    List<ReadingItem> readingItems;
+
+    public Library() {
+        this.readingItems = new ArrayList<>();
+    }
 
     public void addToStock(ReadingItem item) {
         this.readingItems.add(item);
