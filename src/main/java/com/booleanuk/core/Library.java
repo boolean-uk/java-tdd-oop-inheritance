@@ -27,7 +27,7 @@ public class Library {
 
     // The following methods may contain code that you are unfamiliar with. The strange syntax of article -> something
     // is called a lambda expression (https://www.w3schools.com/java/java_lambda.asp)
-    public String checkInArticle(String title) {
+    public String checkInReadingItem(String title) {
         List<ReadingItem> filtered = this.readingItems.stream()
                 // lambders: .filter works like a loop
                 .filter(readingItem -> readingItem.title.equals(title))
@@ -40,7 +40,7 @@ public class Library {
         return filtered.get(0).checkIn();
     }
 
-    public String checkOutArticle(String title) {
+    public String checkOutReadingItem(String title) {
         List<ReadingItem> filtered = this.readingItems.stream()
                 .filter(readingItem -> readingItem.title.equals(title))
                 .toList();
