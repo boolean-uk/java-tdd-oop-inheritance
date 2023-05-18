@@ -1,10 +1,13 @@
 package com.booleanuk.core;
 
+import java.lang.reflect.Type;
+
 public class Book extends Media{
+   Author author;
 
-
-    public Book(String title) {
+    public Book(String title, Author author) {
         super(title);
+        this.author = author;
     }
 
     public String checkIn() {
