@@ -3,26 +3,32 @@ package com.booleanuk.core;
 import java.util.List;
 
 public class Library {
-    List<Article> articles;
-    List<Book> books;
-    List<Newspaper> newspapers;
+//    List<Article> articles;
+//    List<Book> books;
+//    List<Newspaper> newspapers;
 
-    public void addToStock(Article item) {
-        this.articles.add(item);
-    }
+    List<ReadingItem> readingItems;
 
-    public void addToStock(Book item) {
-        this.books.add(item);
+    public void addToStock(ReadingItem item) {
+        this.readingItems.add(item);
     }
-
-    public void addToStock(Newspaper item) {
-        this.newspapers.add(item);
-    }
+//    public void addToStock(Article item) {
+//        this.articles.add(item);
+//    }
+//
+//    public void addToStock(Book item) {
+//        this.books.add(item);
+//    }
+//
+//    public void addToStock(Newspaper item) {
+//        this.newspapers.add(item);
+//    }
 
     // The following methods may contain code that you are unfamiliar with. The strange syntax of article -> something
     // is called a lambda expression (https://www.w3schools.com/java/java_lambda.asp)
     public String checkInArticle(String title) {
         List<Article> filtered = this.articles.stream()
+                // lambders: .filter works like a loop
                 .filter(article -> article.title.equals(title))
                 .toList();
 
