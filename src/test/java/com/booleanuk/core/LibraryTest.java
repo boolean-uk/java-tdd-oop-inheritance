@@ -99,4 +99,26 @@ public class LibraryTest {
                 LIBRARY.checkOutLibraryItem("Amazing Title")
         );
     }
+
+    @Test
+    public void getAuthorInformationTest(){
+        Author author = new Author("Jan Kowalski", "kowalski@mail.com", "landofstories.com");
+        Book book = new Book("JUnit Rocks", author);
+        Newspaper newspaper = new Newspaper("Boring Newspaper");
+        LIBRARY.addToStock(book);
+        LIBRARY.addToStock(newspaper);
+        assertEquals(
+                "item is not part of the library's collection",
+                LIBRARY.getAuthorInformation("Amazing Title")
+        );
+        assertEquals(
+                "item doesn't have a specific author",
+                LIBRARY.getAuthorInformation("Boring Newspaper")
+        );
+
+        assertEquals(
+                "Jan Kowalski Mail: kowalski@mail.com Website: landofstories.com",
+                LIBRARY.getAuthorInformation("JUnit Rocks")
+        );
+    }
 }

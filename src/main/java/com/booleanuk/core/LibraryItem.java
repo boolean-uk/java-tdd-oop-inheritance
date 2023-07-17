@@ -36,4 +36,11 @@ public class LibraryItem {
     public String getTitle() {
         return title;
     }
+
+    public String getDescription(){
+        return getTitle() + " item doesn't have a specific author";
+    }
+    public String authorInformation(){
+        return "item doesn't have a specific author";
+    }
 }
