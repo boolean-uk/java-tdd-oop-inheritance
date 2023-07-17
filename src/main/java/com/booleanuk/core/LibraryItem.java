@@ -1,18 +1,22 @@
 package com.booleanuk.core;
 
-public class Article extends LibraryItem {
-    public Article(String title){
-        super(title);
+public class LibraryItem {
+    String title;
+    boolean onLoan = false;
+
+    public LibraryItem(String title){
+        this.title=title;
     }
-    @Override
+    public boolean isOnLoan(){
+        return onLoan;
+    }
     public String checkIn(){
         if (!this.isOnLoan()){
             return "item has been checked in";
         }
         this.onLoan=true;
-        return "item is currently on loan";
+        return "item has been checked out";
     }
-    @Override
     public String checkOut(){
         if (!this.isOnLoan()){
             return "item has been checked out";
@@ -20,4 +24,5 @@ public class Article extends LibraryItem {
         this.onLoan=true;
         return "item has not been checked out";
     }
+
 }
