@@ -1,4 +1,5 @@
 package com.booleanuk.core;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -166,5 +167,50 @@ public class LibraryTest {
 
             Assertions.assertEquals("item has been checked out", result);
         }
+
+        @Test
+        public void testArticleCheckIn() {
+            String result = library.checkInArticle("Article 1");
+
+            Assertions.assertEquals("Item is not part of the library's collection", result);
+        }
+
+        @Test
+        public void testArticleCheckOut() {
+            String result = library.checkOutArticle("Article 1");
+
+            Assertions.assertEquals("Item is not part of the library's collection", result);
+        }
+
+        @Test
+        public void testBookCheckIn() {
+            String result = library.checkInBook("Book 1");
+
+            Assertions.assertEquals("Item is not part of the library's collection", result);
+        }
+
+        @Test
+        public void testBookCheckOut() {
+            String result = library.checkOutBook("Book 1");
+
+            Assertions.assertEquals("Item is not part of the library's collection", result);
+        }
+
+        @Test
+        public void testCheckInNewspaper() {
+            String result = library.checkInNewspaper("Newspaper 1");
+
+            Assertions.assertEquals("Item is not part of the library's collection", result);
+        }
+
+        @Test
+        public void testCheckOutNewspaper() {
+            String result = library.checkOutNewspaper("Newspaper 1");
+
+            Assertions.assertEquals("Item is not part of the library's collection", result);
+        }
+
+
+
     }
 }
