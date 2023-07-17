@@ -19,7 +19,7 @@ public class BookTest {
 
     @Test
     public void shouldDeclineIfNotAvailableToCheckout() {
-        LibraryItem item = new Book("JUnit Rocks", author));
+        LibraryItem item = new Book("JUnit Rocks", author);
         item.checkOut();
 
         Assertions.assertEquals("Book is currently on loan", item.checkOut());
@@ -27,7 +27,7 @@ public class BookTest {
 
     @Test
     public void shouldCheckInIfOnLoan() {
-        LibraryItem item = new Book("JUnit Rocks", author));
+        LibraryItem item = new Book("JUnit Rocks", author);
         item.checkOut();
 
         Assertions.assertEquals("Book has been checked in", item.checkIn());
@@ -35,7 +35,7 @@ public class BookTest {
 
     @Test
     public void shouldDeclineCheckInIfNotOnLoan() {
-        LibraryItem item = new Book("JUnit Rocks");
+        LibraryItem item = new Book("JUnit Rocks", author);
 
         Assertions.assertEquals("Book is not currently on loan", item.checkIn());
     }

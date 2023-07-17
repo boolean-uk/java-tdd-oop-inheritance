@@ -15,6 +15,7 @@ class ArticleTest {
     public void shouldCheckOutIfAvailable() {
         LibraryItem item = new Article("JUnit Rocks", author);
         Assertions.assertEquals("Article has been checked out", item.checkOut());
+        Assertions.assertEquals("John", ((Article) item).getAuthor().getName());
 
     }
 
