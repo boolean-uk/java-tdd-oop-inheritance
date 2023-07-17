@@ -32,4 +32,7 @@ public abstract class Publication {
 
         return "item has been checked out";
     }
+
+    public String getTitle(){ return title; }
+
 }

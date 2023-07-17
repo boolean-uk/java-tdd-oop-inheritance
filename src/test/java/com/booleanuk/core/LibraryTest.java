@@ -7,15 +7,18 @@ import org.junit.jupiter.api.Test;
 
 public class LibraryTest {
     private Library library;
+    private Author author;
 
     @BeforeEach
     public void setUp() {
         library = new Library();
+        author = new Author("J.R.R. Tolkien", "tolkien@gmail.com",
+                "555-555-5555", "tolkien.com");
     }
 
     @Test
     public void testAddToStock() {
-        Publication book = new Book("To Kill a Mockingbird");
+        Publication book = new Book("To Kill a Mockingbird", author);
         library.addToStock(book);
 
         Assertions.assertEquals(book.checkIn(), library.checkInPublication("To Kill a Mockingbird"));
