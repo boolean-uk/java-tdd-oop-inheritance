@@ -25,6 +25,20 @@ public class LibraryTest {
         Assertions.assertEquals(library.itemsFromLibrary.get(0).title, "article");
     }
 
+ @Test
+    void addToStockTest_addArticleAsArticle_withAuthor() throws Exception {
+        Library library = new Library();
+        Author author = new Author("John Smith", "mail@mail.com", "111222333", "website.com");
+        Article article = new Article("article", author);
+        library.addToStock(article);
+        Position positionFromLibrary = library.itemsFromLibrary.get(0);
+        Article positionFromLibraryArticle = (Article)library.itemsFromLibrary.get(0);
+
+        Assertions.assertEquals(library.itemsFromLibrary.size(), 1);
+        Assertions.assertEquals(positionFromLibrary.title, "article");
+        Assertions.assertEquals(positionFromLibraryArticle.author.toString(), "Author{name='John Smith', email='mail@mail.com', phoneNumber='111222333', website='website.com'}");
+    }
+
     @Test
     void addToStockTest_addBookAsPosition(){
         Library library = new Library();
@@ -43,6 +57,20 @@ public class LibraryTest {
 
         Assertions.assertEquals(library.itemsFromLibrary.size(), 1);
         Assertions.assertEquals(library.itemsFromLibrary.get(0).title, "book");
+    }
+    @Test
+    void addToStockTest_addBookAsBook_withAuthor() throws Exception {
+        Library library = new Library();
+        Author author = new Author("John Smith", "mail@mail.com", "111222333", "website.com");
+        Book book = new Book("book", author);
+        library.addToStock(book);
+        Position positionFromLibrary = library.itemsFromLibrary.get(0);
+        Book positionFromLibraryBook = (Book)library.itemsFromLibrary.get(0);
+
+        Assertions.assertEquals(library.itemsFromLibrary.size(), 1);
+        Assertions.assertEquals(positionFromLibrary.title, "book");
+        Assertions.assertEquals(positionFromLibraryBook.author.toString(), "Author{name='John Smith', email='mail@mail.com', phoneNumber='111222333', website='website.com'}");
+
     }
 
     @Test
