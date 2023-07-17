@@ -13,8 +13,8 @@ public class LibraryTest {
     @BeforeEach
     public void setUp() {
         library = new Library();
-        book = new Book("Java is great");
-        library.addToStock(new Article("JUnit Rocks"));
+        book = new Book("Java is great",  new Author("Dave Ames", "dave@boolean.uk.com", "boolean.uk.com"));
+        library.addToStock(new Article("JUnit Rocks",  new Author("Dave Ames", "dave@boolean.uk.com", "boolean.uk.com")));
         library.addToStock(book);
         library.addToStock(new Newspaper("C# is not great"));
         library.addToStock(new Item("Marlena"));
