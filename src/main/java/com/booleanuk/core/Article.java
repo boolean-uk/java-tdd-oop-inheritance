@@ -8,6 +8,9 @@ public class Article extends Product {
         this.author = author;
     }
 
+    public Author getAuthor() {
+        return author;
+    }
 
     public String checkIn() {
         if (!this.isOnLoan()) {

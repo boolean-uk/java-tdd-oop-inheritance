@@ -8,6 +8,10 @@ public class Book extends Product {
         this.author = author;
     }
 
+    public Author getAuthor() {
+        return author;
+    }
+
     public String checkIn() {
         if (!this.isOnLoan()) {
             return "item is not currently on loan";
