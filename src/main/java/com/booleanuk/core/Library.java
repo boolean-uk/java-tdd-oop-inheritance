@@ -1,10 +1,11 @@
 package com.booleanuk.core;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Library {
 
-    List<Writing> writings;
+    List<Writing> writings = new ArrayList<>();
 
     public void addToStock(Writing writing) {
         this.writings.add(writing);
