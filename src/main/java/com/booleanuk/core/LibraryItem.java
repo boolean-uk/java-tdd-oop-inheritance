@@ -10,6 +10,7 @@ public class LibraryItem {
         this.title = title;
     }
 
+
     public String checkIn(){
         if (!this.isOnLoan()) {
             return  this.getClass().getSimpleName() + " is not currently on loan";

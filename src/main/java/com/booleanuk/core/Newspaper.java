@@ -13,4 +13,8 @@ public class Newspaper extends LibraryItem{
     public String checkOut() {
         return "newspapers are not available for loan";
     }
+
+    public String getAuthor() {
+        return "Newspapers have multiple authors";
+    }
 }
