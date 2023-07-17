@@ -1,11 +1,20 @@
 package com.booleanuk.core;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Library {
     List<Article> articles;
     List<Book> books;
     List<Newspaper> newspapers;
+
+    public Library() {
+        articles = new ArrayList<>();
+        newspapers = new ArrayList<>();
+        books = new ArrayList<>();
+    }
+
+
 
     public void addToStock(Article item) {
         this.articles.add(item);
@@ -23,7 +32,7 @@ public class Library {
     // is called a lambda expression (https://www.w3schools.com/java/java_lambda.asp)
     public String checkInArticle(String title) {
         List<Article> filtered = this.articles.stream()
-                .filter(article -> article.title.equals(title))
+                .filter(article -> article.getTitle().equals(title))
                 .toList();
 
         if (filtered.size() < 1) {
@@ -35,7 +44,7 @@ public class Library {
 
     public String checkOutArticle(String title) {
         List<Article> filtered = this.articles.stream()
-                .filter(article -> article.title.equals(title))
+                .filter(article -> article.getTitle().equals(title))
                 .toList();
 
         if (filtered.size() < 1) {
@@ -47,7 +56,7 @@ public class Library {
 
     public String checkInBook(String title) {
         List<Book> filtered = this.books.stream()
-                .filter(book -> book.title.equals(title))
+                .filter(book -> book.getTitle().equals(title))
                 .toList();
 
         if (filtered.size() < 1) {
@@ -59,7 +68,7 @@ public class Library {
 
     public String checkOutBook(String title) {
         List<Book> filtered = this.books.stream()
-                .filter(book -> book.title.equals(title))
+                .filter(book -> book.getTitle().equals(title))
                 .toList();
 
         if (filtered.size() < 1) {
@@ -71,7 +80,7 @@ public class Library {
 
     public String checkInNewspaper(String title) {
         List<Newspaper> filtered = this.newspapers.stream()
-                .filter(newspaper -> newspaper.title.equals(title))
+                .filter(newspaper -> newspaper.getTitle().equals(title))
                 .toList();
 
         if (filtered.size() < 1) {
@@ -83,7 +92,7 @@ public class Library {
 
     public String checkOutNewspaper(String title) {
         List<Newspaper> filtered = this.newspapers.stream()
-                .filter(newspaper -> newspaper.title.equals(title))
+                .filter(newspaper -> newspaper.getTitle().equals(title))
                 .toList();
 
         if (filtered.size() < 1) {
