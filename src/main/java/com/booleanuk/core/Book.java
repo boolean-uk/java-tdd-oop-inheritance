@@ -1,16 +1,9 @@
 package com.booleanuk.core;
 
-public class Book {
-    String title;
-
-    boolean onLoan = false;
+public class Book extends Product {
 
     public Book(String title) {
-        this.title = title;
-    }
-
-    public boolean isOnLoan() {
-        return onLoan;
+        super(title);
     }
 
     public String checkIn() {
