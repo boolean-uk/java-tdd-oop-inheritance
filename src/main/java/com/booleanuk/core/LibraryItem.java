@@ -32,4 +32,8 @@ public class LibraryItem {
 
         return "item has been checked out";
     }
+
+    public String getTitle() {
+        return title;
+    }
 }
