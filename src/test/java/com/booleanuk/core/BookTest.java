@@ -32,4 +32,11 @@ public class BookTest {
 
         Assertions.assertEquals("item is not currently on loan", book.checkIn());
     }
+
+    @Test
+    public void testBookIsInstanceOfItem() {
+        Book book = new Book("JUnit Rocks");
+
+        Assertions.assertTrue(book instanceof Item);
+    }
 }
