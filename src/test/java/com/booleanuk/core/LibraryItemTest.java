@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class LibraryItemTest {
+
     @Test
     public void shouldCheckOutItemIfAvailable() {
         LibraryItem article = new Article("JUnit Rocks");
@@ -51,4 +52,5 @@ class LibraryItemTest {
 
         Assertions.assertEquals("item is not currently on loan", book.checkIn());
     }
+
 }
