@@ -9,7 +9,7 @@ public class LibraryTest {
         Library library = new Library();
         Assertions.assertEquals("item is not part of the library's collection",
                 library.checkOutItem("Lord of The Rings"));
-        library.addToStock(new Book("Lord of The Rings"));
+        library.addToStock(new Book("Lord of The Rings", null));
         Assertions.assertEquals("item has been checked out",
                 library.checkOutItem("Lord of The Rings"));
         library.addToStock(new Newspaper("Seals effect on environment"));
@@ -21,7 +21,7 @@ public class LibraryTest {
         Library library = new Library();
         Assertions.assertEquals("item is not part of the library's collection",
                 library.checkInItem("Lord of The Rings"));
-        library.addToStock(new Book("Lord of The Rings"));
+        library.addToStock(new Book("Lord of The Rings", null));
         library.checkOutItem("Lord of The Rings");
         Assertions.assertEquals("item has been checked in",
                 library.checkInItem("Lord of The Rings"));
