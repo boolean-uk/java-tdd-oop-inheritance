@@ -15,7 +15,7 @@ public class LibraryTest {
     @BeforeAll
     static void setup() {
         library = new Library();
-        
+
         book1 = new Book("Book 1");
         book2 = new Book("Book 2");
         article1 = new Article("Article 1");
