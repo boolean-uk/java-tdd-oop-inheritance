@@ -10,6 +10,7 @@ public class BookTest {
         Assertions.assertEquals("item has been checked out", book.checkOut());
     }
 
+
     @Test
     public void shouldDeclineIfNotAvailableToCheckout() {
         Book book = new Book("JUnit Rocks");

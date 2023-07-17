@@ -12,17 +12,17 @@ public class LibraryItem {
     }
     public String checkIn(){
         if (!this.isOnLoan()){
-            return "item has been checked in";
+            return "item is not currently on loan";
+        }
+        this.onLoan=false;
+        return "item has been checked in";
+    }
+    public String checkOut(){
+        if (this.isOnLoan()){
+            return "item is currently on loan";
         }
         this.onLoan=true;
         return "item has been checked out";
-    }
-    public String checkOut(){
-        if (!this.isOnLoan()){
-            return "item has been checked out";
-        }
-        this.onLoan=true;
-        return "item has not been checked out";
     }
 
 }
