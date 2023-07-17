@@ -9,7 +9,15 @@ Modify the existing tests to prove your solution works as intended
 Create a test suite for the Library class, as well as any new classes you create
  */
 public class Article extends Publication {
-    public Article(String title) {
+    private Author author;
+
+    public Article(String title, Author author) {
         super(title);
+        this.author = author;
+    }
+
+    // Getter for the author
+    public Author getAuthor() {
+        return author;
     }
 }
