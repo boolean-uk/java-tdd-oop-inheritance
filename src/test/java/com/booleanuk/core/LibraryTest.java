@@ -16,9 +16,9 @@ public class LibraryTest {
     static void setup() {
         library = new Library();
 
-        book1 = new Book("Book 1");
-        book2 = new Book("Book 2");
-        article1 = new Article("Article 1");
+        book1 = new Book("Book 1", new Author("J. K. Rowling", "122-222-333", "www.example.com"));
+        book2 = new Book("Book 2", new Author("Andrzej Sapkowski", "Borsucza 89/45", "www.example.com"));
+        article1 = new Article("Article 1", new Author("Author 1", "contact 1", "website1"));
         newspaper1 = new Newspaper("Newspaper 1");
     }
 

@@ -1,9 +1,11 @@
 package com.booleanuk.core;
 
 public class Book extends Product {
+    Author author;
 
-    public Book(String title) {
+    public Book(String title, Author author) {
         super(title);
+        this.author = author;
     }
 
     public String checkIn() {
