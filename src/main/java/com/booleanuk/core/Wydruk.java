@@ -40,4 +40,8 @@ public class Wydruk {
 
         return "item has been checked out";
     }
+
+    public String getAuthors(){
+return "Don't have author";
+    }
 }

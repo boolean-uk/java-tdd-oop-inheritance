@@ -15,4 +15,12 @@ public class NewspaperTest {
         Newspaper newspaper = new Newspaper("The Daily Java");
         Assertions.assertEquals("newspapers are not available for loan", newspaper.checkOut());
     }
+
+    @Test
+    public void shouldNotReturnAuthor(){
+        //when
+        Newspaper newspaper = new Newspaper("XXX");
+        String authorInfo = newspaper.getAuthors();
+        Assertions.assertEquals("Don't have author", authorInfo);
+    }
 }

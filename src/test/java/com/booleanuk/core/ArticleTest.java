@@ -32,4 +32,15 @@ class ArticleTest {
 
         Assertions.assertEquals("item is not currently on loan", article.checkIn());
     }
+
+    @Test
+    public void shouldAddAuthorToArticle(){
+        //when
+        Authors authors = new Authors("James", "123456789", "James.com");
+        Article article = new Article("XXX", authors);
+        String authorInfo = article.getAuthors();
+        System.out.println(authorInfo.toString());
+        Assertions.assertEquals(authors.toString(), authorInfo);
+
+    }
 }
