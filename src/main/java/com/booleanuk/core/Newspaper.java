@@ -15,4 +15,9 @@ public class Newspaper extends Item {
     public String checkOut() {
         return "newspapers are not available for loan";
     }
+
+    @Override
+    public String getAuthor() {
+        return "newspapers have multiple authors";
+    }
 }

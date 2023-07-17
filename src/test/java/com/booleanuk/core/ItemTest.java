@@ -16,4 +16,16 @@ public class ItemTest {
 
         Assertions.assertEquals(3, itemList.size());
     }
+
+    @Test
+    public void testGettingItemAuthor() {
+        Item item = new Article("Article", new Author("Name", "Contact", "Website"));
+        Assertions.assertEquals("Name, Contact, Website", item.getAuthor());
+
+        item = new Newspaper("Newspaper");
+        Assertions.assertEquals("newspapers have multiple authors", item.getAuthor());
+
+        item  = new Book("Book");
+        Assertions.assertEquals("Unknown", item.getAuthor());
+    }
 }
