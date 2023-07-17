@@ -35,10 +35,4 @@ public class Library {
 
         return filtered.get(0).checkOut();
     }
-
-    public static void main(String[] args) {
-        Library library = new Library();
-        library.addToStock(new Book("Title 1"));
-        System.out.println(library.texts);
-    }
 }

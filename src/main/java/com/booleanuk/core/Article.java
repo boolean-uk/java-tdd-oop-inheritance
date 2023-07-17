@@ -1,7 +1,13 @@
 package com.booleanuk.core;
 
 public class Article extends Text{
-    public Article(String title){
+    private Author author;
+    public Article(String title, Author author){
         super(title);
+        this.author = author;
+    }
+
+    public Author getAuthor() {
+        return author;
     }
 }

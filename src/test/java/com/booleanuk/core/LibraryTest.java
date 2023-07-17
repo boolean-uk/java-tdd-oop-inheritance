@@ -4,11 +4,9 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class LibraryTest {
-
-    private Library library;
-    private static Book EXAMPLE_BOOK = new Book("Title 1");
-    private static Newspaper EXAMPLE_NEWSPAPER = new Newspaper("Title 2");
-    private static Article EXAMPLE_ARTICLE = new Article("Title 3");
+    private static final Book EXAMPLE_BOOK = new Book("Title 1", new Author("name 1", "1", "www"));
+    private static final Newspaper EXAMPLE_NEWSPAPER = new Newspaper("Title 2");
+    private static final Article EXAMPLE_ARTICLE = new Article("Title 3", new Author("name 2", "2", "www.pl"));
 
 
 
