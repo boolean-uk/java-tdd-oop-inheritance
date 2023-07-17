@@ -1,9 +1,12 @@
 package com.booleanuk.core;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Library {
-    List<Position> itemsFromLibrary;
+
+
+    List<Position> itemsFromLibrary = new ArrayList<>();
 
     public void addToStock(Position item) {
         this.itemsFromLibrary.add(item);
@@ -35,6 +38,10 @@ public class Library {
         }
 
         return filtered.get(0).checkOut();
+    }
+
+    public List<Position> getItemsFromLibrary() {
+        return itemsFromLibrary;
     }
 
 }
