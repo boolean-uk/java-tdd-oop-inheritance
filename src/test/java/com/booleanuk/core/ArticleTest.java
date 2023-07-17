@@ -28,7 +28,8 @@ class ArticleTest {
 
     @Test
     public void shouldDeclineCheckInIfNotOnLoan() {
-        Article article = new Article("JUnit Rocks");
+//        Article article = new Article("JUnit Rocks");
+        Item article = new Item("JUnit Rocks");
 
         Assertions.assertEquals("item is not currently on loan", article.checkIn());
     }
