@@ -6,20 +6,24 @@ import org.junit.jupiter.api.Test;
 
 public class LibraryTest {
     Library library;
+    Author author;
     @BeforeEach
     public void setup()
+
     {
         library= new Library();
+        author = new Author("author","contact","www.website.com");
     }
+
     @Test
     public void shouldCheckInArticleIfAvailable() {
-        Article article = new Article("JUnit Rocks");
+        Article article = new Article("JUnit Rocks",author);
         library.addToStock(article);
         Assertions.assertEquals("item is not currently on loan", library.checkInItem(article.title));
     }
     @Test
     public void shouldCheckInBookIfAvailable() {
-        Book book = new Book("JUnit Rocks");
+        Book book = new Book("JUnit Rocks",author);
         library.addToStock(book);
         Assertions.assertEquals("item is not currently on loan", library.checkInItem(book.title));
     }
@@ -32,13 +36,13 @@ public class LibraryTest {
     }
     @Test
     public void shouldCheckOutArticleIfAvailable() {
-        Article article = new Article("JUnit Rocks");
+        Article article = new Article("JUnit Rocks",author);
         library.addToStock(article);
         Assertions.assertEquals("item has been checked out", library.checkOutItem(article.title));
     }
     @Test
     public void shouldCheckOutBookIfAvailable() {
-        Book book = new Book("JUnit Rocks");
+        Book book = new Book("JUnit Rocks",author);
         library.addToStock(book);
         Assertions.assertEquals("item has been checked out", library.checkOutItem(book.title));
     }
