@@ -2,7 +2,7 @@ package com.booleanuk.core;
 
 public abstract class Item {
 
-    private String title;
+    public String title;
 
     private boolean onLoan = false;
 

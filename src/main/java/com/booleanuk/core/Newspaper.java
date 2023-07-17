@@ -1,9 +1,6 @@
 package com.booleanuk.core;
 
 public class Newspaper extends Item {
-    String title;
-
-    boolean onLoan = false;
 
     public Newspaper(String title) {
         super(title);
