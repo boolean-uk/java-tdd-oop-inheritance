@@ -8,16 +8,20 @@ public class LibraryTest {
 
     private Library library;
     private Book book;
+    private Article article;
 
     @BeforeEach
     public void setUp() {
         library = new Library();
-        book = new Book("Hello");
+        Author bookAuthor = new Author("Petros", "123456", "www.some.com");
+        Author articleAuthor = new Author("Mike", "123", "www.mike.com");
+        book = new Book("Hello", bookAuthor);
+        article = new Article("Good Morning", articleAuthor);
+
     }
 
     @Test
     public void testAddMethod() {
-        Article article = new Article("Good Morning");
         library.addToStock(book);
         library.addToStock(article);
 
@@ -61,5 +65,14 @@ public class LibraryTest {
         Assertions.assertEquals(expected, library.checkOutProduct(book.title));
     }
 
+    @Test
+    public void testGetAuthorBookName() {
+        Assertions.assertEquals("Petros", book.getAuthorName());
+    }
+
+    @Test
+    public void testGetAuthorArticleWebsite() {
+        Assertions.assertEquals("www.mike.com", article.getAuthorWebsite());
+    }
 
 }
