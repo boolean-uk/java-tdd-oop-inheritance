@@ -32,4 +32,17 @@ public class BookTest {
 
         Assertions.assertEquals("item is not currently on loan", book.checkIn());
     }
+
+    @Test
+    public void shouldGetAuthor() {
+        Author author = new Author("SomeName", "SomeEmail", "SomeWebsite");
+        Book book = new Book("JUnit Rocks", author);
+        Assertions.assertEquals(author, book.getAuthor());
+    }
+
+    @Test
+    public void shouldGetNullWhenAuthorUnspecified() {
+        Book book = new Book("JUnit Rocks");
+        Assertions.assertNull(book.getAuthor());
+    }
 }
