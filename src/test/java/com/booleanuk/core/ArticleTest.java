@@ -4,32 +4,17 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 class ArticleTest {
-    @Test
-    public void shouldCheckOutIfAvailable() {
-        Article article = new Article("JUnit Rocks");
-        Assertions.assertEquals("item has been checked out", article.checkOut());
-    }
 
     @Test
-    public void shouldDeclineIfNotAvailableToCheckout() {
-        Article article = new Article("JUnit Rocks");
-        article.checkOut();
+    public void getAuthorShouldReturnAuthor() {
+        Author author = new Author("Jan", "email: jan_author@gmail.com", "jan.com");
+        Article article = new Article("Article", author);
 
-        Assertions.assertEquals("item is currently on loan", article.checkOut());
+        Assertions.assertEquals(author.name(), article.getAuthor().name());
+        Assertions.assertEquals(author.contactInformation(), article.getAuthor().contactInformation());
+        Assertions.assertEquals(author.website(), article.getAuthor().website());
+
+
     }
 
-    @Test
-    public void shouldCheckInIfOnLoan() {
-        Article article = new Article("JUnit Rocks");
-        article.checkOut();
-
-        Assertions.assertEquals("item has been checked in", article.checkIn());
-    }
-
-    @Test
-    public void shouldDeclineCheckInIfNotOnLoan() {
-        Article article = new Article("JUnit Rocks");
-
-        Assertions.assertEquals("item is not currently on loan", article.checkIn());
-    }
 }
