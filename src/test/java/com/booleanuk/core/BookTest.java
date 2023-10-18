@@ -32,4 +32,12 @@ public class BookTest {
 
         Assertions.assertEquals("item is not currently on loan", book.checkIn());
     }
+
+    @Test
+    public void getDescriptionTest(){
+        Author author = new Author("Jan Kowalski", "kowalski@mail.com", "landofstories.com");
+        Book book = new Book("JUnit Rocks", author);
+
+        Assertions.assertEquals("JUnit Rocks Written by: Jan Kowalski", book.getDescription());
+    }
 }

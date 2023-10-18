@@ -15,4 +15,11 @@ public class NewspaperTest {
         Newspaper newspaper = new Newspaper("The Daily Java");
         Assertions.assertEquals("newspapers are not available for loan", newspaper.checkOut());
     }
+
+    @Test
+    public void getDescriptionTest(){
+        Newspaper newspaper = new Newspaper("JUnit Rocks");
+
+        Assertions.assertEquals("JUnit Rocks item doesn't have a specific author", newspaper.getDescription());
+    }
 }
