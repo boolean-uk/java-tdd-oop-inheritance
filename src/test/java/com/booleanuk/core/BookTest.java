@@ -32,4 +32,12 @@ public class BookTest {
 
         Assertions.assertEquals("item is not currently on loan", book.checkIn());
     }
+
+    @Test
+    public void shouldCreateBookWithAuthor() {
+        Author author = new Author("Author", "123123123", "author.com");
+        Book book = new Book("JUnit Rocks", author);
+
+        Assertions.assertEquals(author, book.getAuthor());
+    }
 }
