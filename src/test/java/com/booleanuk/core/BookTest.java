@@ -32,4 +32,16 @@ public class BookTest {
 
         Assertions.assertEquals("item is not currently on loan", book.checkIn());
     }
+
+    @Test
+    public  void shouldReturnAuthor() {
+        Authors authors = new Authors("James", "123456789", "James.com");
+        Book book = new Book("XXX", authors);
+        String authorInfo = book.getAuthors();
+        System.out.println(authorInfo.toString());
+        Assertions.assertEquals(authors.toString(), authorInfo);
+
+
+
+    }
 }
