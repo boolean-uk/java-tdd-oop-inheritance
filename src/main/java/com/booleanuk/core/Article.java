@@ -1,35 +1,23 @@
 package com.booleanuk.core;
 
-public class Article {
-    String title;
 
-    boolean onLoan = false;
+/*
+There are some classes and tests in the usual place. It's a basic implementation of a library's collection of books, articles and newspapers, with quite a bit of repetition and redundancy.
 
-    public Article(String title) {
-        this.title = title;
+Refactor the code base using inheritance to remove the repetition
+Modify the existing tests to prove your solution works as intended
+Create a test suite for the Library class, as well as any new classes you create
+ */
+public class Article extends Publication {
+    private Author author;
+
+    public Article(String title, Author author) {
+        super(title);
+        this.author = author;
     }
 
-    public boolean isOnLoan() {
-        return onLoan;
-    }
-
-    public String checkIn() {
-        if (!this.isOnLoan()) {
-            return "item is not currently on loan";
-        }
-
-        this.onLoan = false;
-
-        return "item has been checked in";
-    }
-
-    public String checkOut() {
-        if (this.isOnLoan()) {
-            return "item is currently on loan";
-        }
-
-        this.onLoan = true;
-
-        return "item has been checked out";
+    // Getter for the author
+    public Author getAuthor() {
+        return author;
     }
 }

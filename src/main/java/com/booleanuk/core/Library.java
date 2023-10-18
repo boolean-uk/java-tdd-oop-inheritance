@@ -1,95 +1,106 @@
 package com.booleanuk.core;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Library {
-    List<Article> articles;
-    List<Book> books;
-    List<Newspaper> newspapers;
+    private List<Article> articles;
+    private List<Book> books;
+    private List<Newspaper> newspapers;
+
+    public Library() {
+        this.articles = new ArrayList<>();
+        this.books = new ArrayList<>();
+        this.newspapers = new ArrayList<>();
+    }
 
     public void addToStock(Article item) {
-        this.articles.add(item);
+        articles.add(item);
     }
 
     public void addToStock(Book item) {
-        this.books.add(item);
+        books.add(item);
     }
 
     public void addToStock(Newspaper item) {
-        this.newspapers.add(item);
+        newspapers.add(item);
     }
 
-    // The following methods may contain code that you are unfamiliar with. The strange syntax of article -> something
-    // is called a lambda expression (https://www.w3schools.com/java/java_lambda.asp)
+    public void removeFromStock(Article item) {
+        articles.remove(item);
+    }
+
+    public void removeFromStock(Book item) {
+        books.remove(item);
+    }
+
+    public void removeFromStock(Newspaper item) {
+        newspapers.remove(item);
+    }
+
+    public List<Article> getArticles() {
+        return articles;
+    }
+
+    public List<Book> getBooks() {
+        return books;
+    }
+
+    public List<Newspaper> getNewspapers() {
+        return newspapers;
+    }
+
     public String checkInArticle(String title) {
-        List<Article> filtered = this.articles.stream()
-                .filter(article -> article.title.equals(title))
-                .toList();
-
-        if (filtered.size() < 1) {
-            return "item is not part of the library's collection";
+        for (Article article : articles) {
+            if (article.getTitle().equals(title)) {
+                return article.checkIn();
+            }
         }
-
-        return filtered.get(0).checkIn();
+        return "Item is not part of the library's collection";
     }
 
     public String checkOutArticle(String title) {
-        List<Article> filtered = this.articles.stream()
-                .filter(article -> article.title.equals(title))
-                .toList();
-
-        if (filtered.size() < 1) {
-            return "item is not part of the library's collection";
+        for (Article article : articles) {
+            if (article.getTitle().equals(title)) {
+                return article.checkOut();
+            }
         }
-
-        return filtered.get(0).checkOut();
+        return "Item is not part of the library's collection";
     }
 
     public String checkInBook(String title) {
-        List<Book> filtered = this.books.stream()
-                .filter(book -> book.title.equals(title))
-                .toList();
-
-        if (filtered.size() < 1) {
-            return "item is not part of the library's collection";
+        for (Book book : books) {
+            if (book.getTitle().equals(title)) {
+                return book.checkIn();
+            }
         }
-
-        return filtered.get(0).checkIn();
+        return "Item is not part of the library's collection";
     }
 
     public String checkOutBook(String title) {
-        List<Book> filtered = this.books.stream()
-                .filter(book -> book.title.equals(title))
-                .toList();
-
-        if (filtered.size() < 1) {
-            return "item is not part of the library's collection";
+        for (Book book : books) {
+            if (book.getTitle().equals(title)) {
+                return book.checkOut();
+            }
         }
-
-        return filtered.get(0).checkOut();
+        return "Item is not part of the library's collection";
     }
 
     public String checkInNewspaper(String title) {
-        List<Newspaper> filtered = this.newspapers.stream()
-                .filter(newspaper -> newspaper.title.equals(title))
-                .toList();
-
-        if (filtered.size() < 1) {
-            return "item is not part of the library's collection";
+        for (Newspaper newspaper : newspapers) {
+            if (newspaper.getTitle().equals(title)) {
+                return newspaper.checkIn();
+            }
         }
-
-        return filtered.get(0).checkIn();
+        return "Item is not part of the library's collection";
     }
 
     public String checkOutNewspaper(String title) {
-        List<Newspaper> filtered = this.newspapers.stream()
-                .filter(newspaper -> newspaper.title.equals(title))
-                .toList();
-
-        if (filtered.size() < 1) {
-            return "item is not part of the library's collection";
+        for (Newspaper newspaper : newspapers) {
+            if (newspaper.getTitle().equals(title)) {
+                return newspaper.checkOut();
+            }
         }
-
-        return filtered.get(0).checkOut();
+        return "Item is not part of the library's collection";
     }
 }
