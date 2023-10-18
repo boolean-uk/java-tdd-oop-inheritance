@@ -1,35 +1,44 @@
 package com.booleanuk.core;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 class ArticleTest {
+    static Author author;
+    @BeforeAll
+    public static void setUpBeforeClass() {
+         author = new Author("John", "787787877", "john.com");
+
+    }
     @Test
     public void shouldCheckOutIfAvailable() {
-        Article article = new Article("JUnit Rocks");
-        Assertions.assertEquals("item has been checked out", article.checkOut());
+        LibraryItem item = new Article("JUnit Rocks", author);
+        Assertions.assertEquals("Article has been checked out", item.checkOut());
+        Assertions.assertEquals("John", ((Article) item).getAuthor().getName());
+
     }
 
     @Test
     public void shouldDeclineIfNotAvailableToCheckout() {
-        Article article = new Article("JUnit Rocks");
-        article.checkOut();
+        LibraryItem item = new Article("JUnit Rocks", author);
+        item.checkOut();
 
-        Assertions.assertEquals("item is currently on loan", article.checkOut());
+        Assertions.assertEquals("Article is currently on loan", item.checkOut());
     }
 
     @Test
     public void shouldCheckInIfOnLoan() {
-        Article article = new Article("JUnit Rocks");
-        article.checkOut();
+        LibraryItem item = new Article("JUnit Rocks", author);
+        item.checkOut();
 
-        Assertions.assertEquals("item has been checked in", article.checkIn());
+        Assertions.assertEquals("Article has been checked in", item.checkIn());
     }
 
     @Test
     public void shouldDeclineCheckInIfNotOnLoan() {
-        Article article = new Article("JUnit Rocks");
+        LibraryItem item = new Article("JUnit Rocks", author);
 
-        Assertions.assertEquals("item is not currently on loan", article.checkIn());
+        Assertions.assertEquals("Article is not currently on loan", item.checkIn());
     }
 }
