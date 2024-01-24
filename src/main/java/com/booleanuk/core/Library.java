@@ -1,9 +1,10 @@
 package com.booleanuk.core;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Library{
-    List<Admin> items;
+    List<Admin> items = new ArrayList<>();
 
     public Library() {
 
