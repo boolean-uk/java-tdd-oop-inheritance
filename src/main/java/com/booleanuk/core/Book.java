@@ -1,35 +1,26 @@
 package com.booleanuk.core;
 
-public class Book {
-    String title;
+public class Book extends Item {
+    private Author author;
 
-    boolean onLoan = false;
-
-    public Book(String title) {
-        this.title = title;
-    }
-
-    public boolean isOnLoan() {
-        return onLoan;
-    }
-
-    public String checkIn() {
-        if (!this.isOnLoan()) {
-            return "item is not currently on loan";
+    public String getAuthorInformation() {
+        if(author != null){
+            return "Author: " + author.getName() +
+                    "\nContact Information: " + author.getContactInformation() +
+                    "\nWebsite: " + author.getWebsite();
+        }
+        else{
+            return "No author information added";
         }
 
-        this.onLoan = false;
-
-        return "item has been checked in";
     }
 
-    public String checkOut() {
-        if (this.isOnLoan()) {
-            return "item is currently on loan";
-        }
-
-        this.onLoan = true;
-
-        return "item has been checked out";
+    public Book(String title){
+        super(title);
     }
+    public Book(String title, Author author) {
+        super(title);
+        this.author = author;
+    }
+
 }

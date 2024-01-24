@@ -15,4 +15,9 @@ public class NewspaperTest {
         Newspaper newspaper = new Newspaper("The Daily Java");
         Assertions.assertEquals("newspapers are not available for loan", newspaper.checkOut());
     }
+
+
+
+
+
 }
