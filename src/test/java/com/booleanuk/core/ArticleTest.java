@@ -4,15 +4,17 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 class ArticleTest {
+
+    Author author = new Author("Bob", "bob@gmail.com", "911", "www.bob.com");
+    Article article = new Article("JUnit Rocks", author);
+
     @Test
     public void shouldCheckOutIfAvailable() {
-        Article article = new Article("JUnit Rocks");
         Assertions.assertEquals("item has been checked out", article.checkOut());
     }
 
     @Test
     public void shouldDeclineIfNotAvailableToCheckout() {
-        Article article = new Article("JUnit Rocks");
         article.checkOut();
 
         Assertions.assertEquals("item is currently on loan", article.checkOut());
@@ -20,7 +22,6 @@ class ArticleTest {
 
     @Test
     public void shouldCheckInIfOnLoan() {
-        Article article = new Article("JUnit Rocks");
         article.checkOut();
 
         Assertions.assertEquals("item has been checked in", article.checkIn());
@@ -28,8 +29,13 @@ class ArticleTest {
 
     @Test
     public void shouldDeclineCheckInIfNotOnLoan() {
-        Article article = new Article("JUnit Rocks");
-
         Assertions.assertEquals("item is not currently on loan", article.checkIn());
+    }
+
+    @Test
+    public void shouldReturnAuthorInfo() {
+        String expected = "This item is written by " + author.getName() + " (e-mail: " + author.getEmail() + ", phone number: "
+                + author.getPhoneNumber() +", website: " + author.getWebsite() + ")";
+        Assertions.assertEquals(expected, article.getAuthor());
     }
 }
