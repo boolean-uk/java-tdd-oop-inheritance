@@ -6,7 +6,8 @@ import org.junit.jupiter.api.Test;
 class ArticleTest {
     @Test
     public void shouldCheckOutIfAvailable() {
-        Article article = new Article("JUnit Rocks");
+        Author Osamah = new Author("Osamah Al-maliki", "osamah.al-maliki@no.experis.com", "osamah.com");
+        Article article = new Article("JUnit Rocks", Osamah);
         Assertions.assertEquals("item has been checked out", article.checkOut());
     }
 
