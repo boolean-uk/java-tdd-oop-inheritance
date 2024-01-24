@@ -8,8 +8,8 @@ public class LibraryTest {
     public void addToLibrary(){
         Library library = new Library();
 
-        Stock book = new Book("Lord Of The Rings");
-        Stock article = new Article("Article1");
+        Stock book = new Book("Lord Of The Rings", "Tolkien", "00000000","123.com");
+        Stock article = new Article("Article1","Sander", "12345678", "VG.no");
         Stock newspaper = new Newspaper("VG");
 
         library.addToStock(book);
