@@ -4,6 +4,8 @@ public abstract class Item {
     String title;
     boolean onLoan = false;
 
+    Author author;
+
     public Item(String title) {
         this.title = title;
     }
@@ -29,5 +31,13 @@ public abstract class Item {
         this.onLoan = true;
 
         return "item has been checked out";
+    }
+
+    public String getAuthor() {
+        if(author == null) {
+            return "item does not have information about author(s)";
+        }
+        return "This item is written by " + author.getName() + " (e-mail: " + author.getEmail() + ", phone number: "
+                + author.getPhoneNumber() +", website: " + author.getWebsite() + ")";
     }
 }

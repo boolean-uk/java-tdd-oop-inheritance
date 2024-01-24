@@ -7,9 +7,12 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class LibraryTest {
-    private Book book = new Book("Dracula");
+    Author bookAuthor = new Author("Bram", "bram_with_fangs@gmail.com", "112", "www.bram_with_fangs.com");
+    Author articleAuthor = new Author("Bob", "bob@gmail.com", "911", "www.bob.com");
+
+    private Book book = new Book("Dracula", bookAuthor);
     private Newspaper newsPaper = new Newspaper("Dracula News");
-    private Article article = new Article("A Study of Dracula");
+    private Article article = new Article("A Study of Dracula", articleAuthor);
 
     @Test
     public void addToStockTest() {
