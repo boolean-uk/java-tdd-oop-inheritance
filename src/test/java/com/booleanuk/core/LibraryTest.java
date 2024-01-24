@@ -39,9 +39,9 @@ public class LibraryTest {
         library.addToStock(book);
         library.addToStock(newspaper);
 
-        Assertions.assertEquals("item has been checked out", article.checkOut());
-        Assertions.assertEquals("item has been checked out", book.checkOut());
-        Assertions.assertEquals("newspapers are not available for loan", newspaper.checkOut());
+        Assertions.assertEquals("item has been checked out", library.checkOutItem("Java Rocks"));
+        Assertions.assertEquals("item has been checked out", library.checkOutItem("Java for Beginners"));
+        Assertions.assertEquals("newspapers are not available for loan", library.checkOutItem("Java Newspaper"));
     }
 
     @Test
@@ -54,8 +54,8 @@ public class LibraryTest {
         article.checkOut();
         book.checkOut();
 
-        Assertions.assertEquals("item is currently on loan", article.checkOut());
-        Assertions.assertEquals("item is currently on loan", book.checkOut());
+        Assertions.assertEquals("item is currently on loan", library.checkOutItem("Java Rocks"));
+        Assertions.assertEquals("item is currently on loan", library.checkOutItem("Java for Beginners"));
     }
 
     @Test
@@ -82,9 +82,9 @@ public class LibraryTest {
         article.checkOut();
         book.checkOut();
 
-        Assertions.assertEquals("item has been checked in", article.checkIn());
-        Assertions.assertEquals("item has been checked in", book.checkIn());
-        Assertions.assertEquals("newspapers are not available for loan", newspaper.checkIn());
+        Assertions.assertEquals("item has been checked in", library.checkInItem("Java Rocks"));
+        Assertions.assertEquals("item has been checked in", library.checkInItem("Java for Beginners"));
+        Assertions.assertEquals("newspapers are not available for loan", library.checkInItem("Java Newspaper"));
     }
 
     @Test
@@ -95,7 +95,7 @@ public class LibraryTest {
         library.addToStock(article);
         library.addToStock(book);
 
-        Assertions.assertEquals("item is not currently on loan", article.checkIn());
-        Assertions.assertEquals("item is not currently on loan", book.checkIn());
+        Assertions.assertEquals("item is not currently on loan", library.checkInItem("Java Rocks"));
+        Assertions.assertEquals("item is not currently on loan", library.checkInItem("Java for Beginners"));
     }
 }
