@@ -8,8 +8,10 @@ public class LibraryTest {
     @Test
     public void testAddToStock(){
         Library library = new Library();
-        Inventory book = new Book("Moby dick");
-        Inventory article = new Article("Medicine advancements");
+        Inventory book = new Book("Moby dick", new Author("Herman Melville", "Uncontactable",
+                "No website registered"));
+        Inventory article = new Article("Medicine advancements", new Author("Thomas Kvam",
+                "myEmail@email.com", "Under construction"));
         library.addToStock(book);
         library.addToStock(article);
         Assertions.assertEquals(2, library.inventories.size());
@@ -18,8 +20,10 @@ public class LibraryTest {
     @Test
     public void testCheckInItem(){
         Library library = new Library();
-        Inventory book = new Book("Moby dick");
-        Inventory article = new Article("Medicine advancements");
+        Inventory book = new Book("Moby dick", new Author("Herman Melville", "Uncontactable",
+                "No website registered"));
+        Inventory article = new Article("Medicine advancements",new Author("Thomas Kvam",
+                "myEmail@email.com", "Under construction"));
         library.addToStock(book);
         library.addToStock(article);
         book.checkOut();
@@ -29,8 +33,10 @@ public class LibraryTest {
     @Test
     public void testCheckInItemFail(){
         Library library = new Library();
-        Inventory book = new Book("Moby dick");
-        Inventory article = new Article("Medicine advancements");
+        Inventory book = new Book("Moby dick", new Author("Herman Melville", "Uncontactable",
+                "No website registered"));
+        Inventory article = new Article("Medicine advancements", new Author("Thomas Kvam",
+                "myEmail@email.com", "Under construction"));
         Assertions.assertEquals("item is not part of the library's collection",
                 library.checkInItem("Moby dick"));
     }
@@ -38,8 +44,10 @@ public class LibraryTest {
     @Test
     public void testCheckOutItem(){
         Library library = new Library();
-        Inventory book = new Book("Moby dick");
-        Inventory article = new Article("Medicine advancements");
+        Inventory book = new Book("Moby dick", new Author("Herman Melville", "Uncontactable",
+                "No website registered"));
+        Inventory article = new Article("Medicine advancements", new Author("Thomas Kvam",
+                "myEmail@email.com", "Under construction"));
         library.addToStock(book);
         library.addToStock(article);
         Assertions.assertEquals("item has been checked out", library.checkOutItem("Moby dick"));
@@ -48,7 +56,8 @@ public class LibraryTest {
     @Test
     public void testCheckOutItemFail(){
         Library library = new Library();
-        Inventory book = new Book("Moby dick");
+        Inventory book = new Book("Moby dick", new Author("Herman Melville", "Uncontactable",
+                "No website registered"));
         Assertions.assertEquals("item is not part of the library's collection",
                 library.checkOutItem("Moby dick"));
 

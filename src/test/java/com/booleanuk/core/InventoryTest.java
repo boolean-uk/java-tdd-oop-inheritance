@@ -7,16 +7,20 @@ public class InventoryTest {
 
     @Test
     public void testInventoryCheckOut(){
-        Inventory inventory = new Inventory("Moby dick");
-        Inventory article = new Article("Medicine advancements");
+        Inventory inventory = new Book("Moby dick", new Author("Herman Melville", "Uncontactable",
+                "No website registered"));
+        Inventory article = new Article("Medicine advancements", new Author("Thomas Kvam",
+                "myEmail@email.com", "Under construction"));
         Assertions.assertEquals("item has been checked out",inventory.checkOut());
         Assertions.assertEquals("item has been checked out", article.checkOut());
     }
 
     @Test
     public void testInventoryCheckOutFail(){
-        Inventory book = new Book("Moby dick");
-        Inventory article = new Article("");
+        Inventory book = new Book("Moby dick", new Author("Herman Melville", "Uncontactable",
+                "No website registered"));
+        Inventory article = new Article("Medicine advancements", new Author("Thomas Kvam",
+                "myEmail@email.com", "Under construction"));
         Inventory newspaper = new Newspaper("New York Times");
         book.checkOut();
         article.checkOut();
@@ -28,8 +32,10 @@ public class InventoryTest {
 
     @Test
     public void shouldCheckInIfOnLoan() {
-        Inventory article = new Article("JUnit Rocks");
-        Inventory book = new Book("Moby Dick");
+        Inventory article = new Article("JUnit Rocks", new Author("Thomas Kvam",
+                "myEmail@email.com", "Under construction"));
+        Inventory book = new Book("Moby Dick", new Author("Herman Melville", "Uncontactable",
+                "No website registered"));
         Inventory newspaper = new Newspaper("Medicine advancements");
         article.checkOut();
         book.checkOut();
@@ -41,8 +47,10 @@ public class InventoryTest {
 
     @Test
     public void shouldDeclineCheckInIfNotOnLoan() {
-        Inventory article = new Article("JUnit Rocks");
-        Inventory book = new Book("Moby Dick");
+        Inventory article = new Article("JUnit Rocks", new Author("Thomas Kvam",
+                "myEmail@email.com", "Under construction"));
+        Inventory book = new Book("Moby Dick", new Author("Herman Melville", "Uncontactable",
+                "No website registered"));
         Inventory newspaper = new Newspaper("Medicine advancements");
         Assertions.assertEquals("item is not currently on loan", article.checkIn());
         Assertions.assertEquals("item is not currently on loan", book.checkIn());
