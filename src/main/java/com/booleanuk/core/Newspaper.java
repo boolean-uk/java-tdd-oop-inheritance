@@ -1,16 +1,9 @@
 package com.booleanuk.core;
 
-public class Newspaper {
-    String title;
-
-    boolean onLoan = false;
+public class Newspaper extends ReadMaterials {
 
     public Newspaper(String title) {
-        this.title = title;
-    }
-
-    public boolean isOnLoan() {
-        return onLoan;
+        super(title);
     }
 
     public String checkIn() {
