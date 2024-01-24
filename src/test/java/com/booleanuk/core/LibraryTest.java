@@ -59,6 +59,18 @@ public class LibraryTest {
     }
 
     @Test
+    public void shouldDeclineCheckoutIfNotPartOfLibraryCollection() {
+        Library library = new Library();
+        Item article = new Article("Java Rocks");
+        Item book = new Book("Java for Beginners");
+        Item newspaper = new Newspaper("Java Newspaper");
+
+        Assertions.assertEquals("item is not part of the library's collection", article.checkOut());
+        Assertions.assertEquals("item is not part of the library's collection", book.checkOut());
+        Assertions.assertEquals("item is not part of the library's collection", newspaper.checkOut());
+    }
+
+    @Test
     public void shouldCheckInIfOnLoan() {
         Library library = new Library();
         Item article = new Article("Java Rocks");
