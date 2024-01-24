@@ -1,9 +1,10 @@
 package com.booleanuk.core;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Library {
-    List<Item> items;
+    List<Item> items = new ArrayList<>();
 
     public void addToStock(Item item) {
         this.items.add(item);
