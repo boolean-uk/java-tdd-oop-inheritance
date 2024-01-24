@@ -5,9 +5,10 @@ import org.junit.jupiter.api.Test;
 
 public class LibraryTest {
     @Test
-    public void shouldCheckOutIfAvailable() {
+    public void checkLibrary() {
+        Author author = new Author("Jon", "546789", "jon.com");
         Library library = new Library();
-        library.addToStock(new Article("Today's Fashin"));
+        library.addToStock(new Article("Today's Fashin", author));
         library.addToStock(new Newspaper("Yesterdays paper"));
 
         Assertions.assertEquals("item is not currently on loan", library.checkInItem("Today's Fashin"));
