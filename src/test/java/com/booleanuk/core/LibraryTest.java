@@ -63,9 +63,6 @@ public class LibraryTest {
     @Test
     public void shouldDeclineCheckoutIfNotPartOfLibraryCollection() {
         Library library = new Library();
-        Item article = new Article("Java Rocks", author);
-        Item book = new Book("Java for Beginners", author);
-        Item newspaper = new Newspaper("Java Newspaper");
 
         Assertions.assertEquals("item is not part of the library's collection", library.checkOutItem("Java Rocks"));
         Assertions.assertEquals("item is not part of the library's collection", library.checkOutItem("Java for Beginners"));
