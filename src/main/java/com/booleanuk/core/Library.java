@@ -21,7 +21,7 @@ public class Library {
                 .filter(item -> item.title.equals(title))
                 .toList();
 
-        if (filtered.size() < 1) {
+        if (filtered.isEmpty()) {
             return "item is not part of the library's collection";
         }
 
@@ -33,7 +33,7 @@ public class Library {
                 .filter(item -> item.title.equals(title))
                 .toList();
 
-        if (filtered.size() < 1) {
+        if (filtered.isEmpty()) {
             return "item is not part of the library's collection";
         }
 

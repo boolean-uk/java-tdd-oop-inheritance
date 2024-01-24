@@ -7,8 +7,8 @@ public class Author {
 
     public Author(String name, String contactInformation, String website) {
         this.name = name;
-        this.contactInformation = contactInformation;
-        this.website = website;
+        setContactInformation(contactInformation);
+        setWebsite(website);
     }
 
     public String getName() {
@@ -21,5 +21,13 @@ public class Author {
 
     public String getWebsite() {
         return this.website;
+    }
+
+    public void setContactInformation(String contactInformation) {
+        this.contactInformation = contactInformation;
+    }
+
+    public void setWebsite(String website) {
+        this.website = website;
     }
 }
