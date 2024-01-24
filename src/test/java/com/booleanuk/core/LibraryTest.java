@@ -8,7 +8,9 @@ public class LibraryTest {
     @Test
     public void testAddStock() {
         Library library = new Library();
-        WrittenObject writtenObject = new Article("Title1");
+        Author author = new Author("Pedro", "+0000000000","Website");
+
+        WrittenObject writtenObject = new Article("Title1", author);
 
         library.addToStock(writtenObject);
 
@@ -22,8 +24,9 @@ public class LibraryTest {
     @Test
     public void testCheckInWrittenObject() {
         Library library = new Library();
-        WrittenObject writtenObject = new Article("Title1");
+        Author author = new Author("Pedro", "+0000000000","Website");
 
+        WrittenObject writtenObject = new Article("Title1", author);
         library.addToStock(writtenObject);
 
         Assertions.assertEquals("item is not currently on loan", library.checkInWrittenObject(writtenObject));
@@ -35,8 +38,9 @@ public class LibraryTest {
     @Test
     public void testCheckOutWrittenObject() {
         Library library = new Library();
+        Author author = new Author("Pedro", "+0000000000","Website");
 
-        WrittenObject writtenObject = new Article("Title1");
+        WrittenObject writtenObject = new Article("Title1", author);
         Assertions.assertEquals("item is not part of the library's collection", library.checkOutWrittenObject(writtenObject));
 
         library.addToStock(writtenObject);

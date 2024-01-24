@@ -1,9 +1,12 @@
 package com.booleanuk.core;
 
-public class Newspaper extends WrittenObject{
+import java.util.ArrayList;
 
-    public Newspaper(String title) {
+public class Newspaper extends WrittenObject{
+    private ArrayList<Author> authors;
+    public Newspaper(String title, ArrayList<Author> authors) {
         super(title);
+        this.authors = authors;
     }
 
     @Override
@@ -13,5 +16,13 @@ public class Newspaper extends WrittenObject{
     @Override
     public String checkOut() {
         return "newspapers are not available for loan";
+    }
+
+    public ArrayList<Author> getAuthors() {
+        return authors;
+    }
+
+    public void setAuthors(ArrayList<Author> authors) {
+        this.authors = authors;
     }
 }
