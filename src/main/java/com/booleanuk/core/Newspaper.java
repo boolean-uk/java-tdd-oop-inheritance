@@ -2,14 +2,8 @@ package com.booleanuk.core;
 
 public class Newspaper extends WrittenObject{
 
-    boolean onLoan = false;
-
     public Newspaper(String title) {
         super(title);
-    }
-
-    public boolean isOnLoan() {
-        return onLoan;
     }
 
     @Override
