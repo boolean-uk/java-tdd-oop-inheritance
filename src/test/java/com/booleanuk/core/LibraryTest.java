@@ -65,9 +65,9 @@ public class LibraryTest {
         Item book = new Book("Java for Beginners");
         Item newspaper = new Newspaper("Java Newspaper");
 
-        Assertions.assertEquals("item is not part of the library's collection", article.checkOut());
-        Assertions.assertEquals("item is not part of the library's collection", book.checkOut());
-        Assertions.assertEquals("item is not part of the library's collection", newspaper.checkOut());
+        Assertions.assertEquals("item is not part of the library's collection", library.checkOutItem("Java Rocks"));
+        Assertions.assertEquals("item is not part of the library's collection", library.checkOutItem("Java for Beginners"));
+        Assertions.assertEquals("item is not part of the library's collection", library.checkOutItem("Java Newspaper"));
     }
 
     @Test
