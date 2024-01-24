@@ -6,13 +6,15 @@ import org.junit.jupiter.api.Test;
 class ArticleTest {
     @Test
     public void shouldCheckOutIfAvailable() {
-        Article article = new Article("JUnit Rocks");
+        Author author = new Author("Bob Bagel");
+        Article article = new Article("JUnit Rocks", author);
         Assertions.assertEquals("item has been checked out", article.checkOut());
     }
 
     @Test
     public void shouldDeclineIfNotAvailableToCheckout() {
-        Article article = new Article("JUnit Rocks");
+        Author author = new Author("Bob Bagel");
+        Article article = new Article("JUnit Rocks", author);
         article.checkOut();
 
         Assertions.assertEquals("item is currently on loan", article.checkOut());
@@ -20,7 +22,8 @@ class ArticleTest {
 
     @Test
     public void shouldCheckInIfOnLoan() {
-        Article article = new Article("JUnit Rocks");
+        Author author = new Author("Bob Bagel");
+        Article article = new Article("JUnit Rocks", author);
         article.checkOut();
 
         Assertions.assertEquals("item has been checked in", article.checkIn());
@@ -28,8 +31,36 @@ class ArticleTest {
 
     @Test
     public void shouldDeclineCheckInIfNotOnLoan() {
-        Article article = new Article("JUnit Rocks");
+        Author author = new Author("Bob Bagel");
+        Article article = new Article("JUnit Rocks", author);
 
         Assertions.assertEquals("item is not currently on loan", article.checkIn());
+    }
+
+    @Test
+    public void shouldSayBobBagel()
+    {
+        Author author = new Author("Bob Bagel", "+001938563924874570", "https://www.bobbagel.eu");
+        Article article = new Article("JUnit Rocks", author);
+
+        Assertions.assertEquals("Bob Bagel", article.getAuthor());
+    }
+
+    @Test
+    public void shouldSayContactInfo()
+    {
+        Author author = new Author("Bob Bagel", "+001938563924874570", "https://www.bobbagel.eu");
+        Article article = new Article("JUnit Rocks", author);
+
+        Assertions.assertEquals("+001938563924874570", article.getContactInfo());
+    }
+
+    @Test
+    public void shouldSayWebsite()
+    {
+        Author author = new Author("Bob Bagel", "+001938563924874570", "https://www.bobbagel.eu");
+        Article article = new Article("JUnit Rocks", author);
+
+        Assertions.assertEquals("https://www.bobbagel.eu", article.getWebsite());
     }
 }
