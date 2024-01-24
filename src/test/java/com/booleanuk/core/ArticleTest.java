@@ -6,13 +6,15 @@ import org.junit.jupiter.api.Test;
 class ArticleTest {
     @Test
     public void shouldCheckOutIfAvailable() {
-        Item article = new Article("JUnit Rocks");
+        Author author = new Author("Name", "email", "Home site");
+        Item article = new Book("JUnit Rocks", author);
         Assertions.assertEquals("item has been checked out", article.checkOut());
     }
 
     @Test
     public void shouldDeclineIfNotAvailableToCheckout() {
-        Item article = new Article("JUnit Rocks");
+        Author author = new Author("Name", "email", "Home site");
+        Item article = new Book("JUnit Rocks", author);
         article.checkOut();
 
         Assertions.assertEquals("item is currently on loan", article.checkOut());
@@ -20,7 +22,8 @@ class ArticleTest {
 
     @Test
     public void shouldCheckInIfOnLoan() {
-        Item article = new Article("JUnit Rocks");
+        Author author = new Author("Name", "email", "Home site");
+        Item article = new Book("JUnit Rocks", author);
         article.checkOut();
 
         Assertions.assertEquals("item has been checked in", article.checkIn());
@@ -28,7 +31,8 @@ class ArticleTest {
 
     @Test
     public void shouldDeclineCheckInIfNotOnLoan() {
-        Item article = new Article("JUnit Rocks");
+        Author author = new Author("Name", "email", "Home site");
+        Item article = new Book("JUnit Rocks", author);
 
         Assertions.assertEquals("item is not currently on loan", article.checkIn());
     }

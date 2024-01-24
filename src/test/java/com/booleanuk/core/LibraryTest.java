@@ -7,7 +7,8 @@ public class LibraryTest {
     @Test
     public void testAddItem() {
         Library library = new Library();
-        Item book = new Book("Sovjietistan");
+        Author author = new Author("Name", "email", "Home site");
+        Item book = new Book("Sovjietistan", author);
         library.addToStock(book);
         Assertions.assertEquals("item is not currently on loan", library.checkInItem("Sovjietistan"));
         Assertions.assertEquals("item is not part of the library's collection", library.checkInItem("NoTitle"));
@@ -15,7 +16,8 @@ public class LibraryTest {
     @Test
     public void testCheckOut() {
         Library library = new Library();
-        Item book = new Book("Sovjietistan");
+        Author author = new Author("Name", "email", "Home site");
+        Item book = new Book("Sovjietistan", author);
         library.addToStock(book);
         Assertions.assertEquals("item has been checked out", library.checkOutItem("Sovjietistan"));
         Assertions.assertEquals("item is not part of the library's collection", library.checkOutItem("NoTitle"));
