@@ -34,4 +34,12 @@ public class BookTest {
 
         Assertions.assertEquals("item is not currently on loan", item.checkIn());
     }
+
+    @Test
+    public void shouldGetAuthorInformation() {
+        Book book = new Book("JUnit Rocks", author);
+        Assertions.assertEquals("Marit", book.getAuthor().getName());
+        Assertions.assertEquals("marit@someEmail.com", book.getAuthor().getContactInformation());
+        Assertions.assertEquals("marit.someWebsite.com", book.getAuthor().getWebsite());
+    }
 }
