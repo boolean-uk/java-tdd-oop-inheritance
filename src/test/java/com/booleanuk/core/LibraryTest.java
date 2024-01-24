@@ -4,6 +4,8 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class LibraryTest {
+    Author author = new Author("Marit", "marit@someEmail.com", "marit.someWebsite.com");
+
     @Test
     public void shouldAddToStock() {
         Library library = new Library();
@@ -18,8 +20,8 @@ public class LibraryTest {
     public void multipleItemsShouldAddToStock() {
         Library library = new Library();
         Item item = new Item("JUnit Rocks");
-        Item article = new Article("Java Rocks");
-        Item book = new Book("Java for Beginners");
+        Item article = new Article("Java Rocks", author);
+        Item book = new Book("Java for Beginners", author);
         Item newspaper = new Newspaper("Java Newspaper");
         library.addToStock(item);
         library.addToStock(article);
@@ -32,8 +34,8 @@ public class LibraryTest {
     @Test
     public void shouldCheckOutIfAvailable() {
         Library library = new Library();
-        Item article = new Article("Java Rocks");
-        Item book = new Book("Java for Beginners");
+        Item article = new Article("Java Rocks", author);
+        Item book = new Book("Java for Beginners", author);
         Item newspaper = new Newspaper("Java Newspaper");
         library.addToStock(article);
         library.addToStock(book);
@@ -47,8 +49,8 @@ public class LibraryTest {
     @Test
     public void shouldDeclineIfNotAvailableToCheckout() {
         Library library = new Library();
-        Item article = new Article("Java Rocks");
-        Item book = new Book("Java for Beginners");
+        Item article = new Article("Java Rocks", author);
+        Item book = new Book("Java for Beginners", author);
         library.addToStock(article);
         library.addToStock(book);
         article.checkOut();
@@ -61,8 +63,8 @@ public class LibraryTest {
     @Test
     public void shouldDeclineCheckoutIfNotPartOfLibraryCollection() {
         Library library = new Library();
-        Item article = new Article("Java Rocks");
-        Item book = new Book("Java for Beginners");
+        Item article = new Article("Java Rocks", author);
+        Item book = new Book("Java for Beginners", author);
         Item newspaper = new Newspaper("Java Newspaper");
 
         Assertions.assertEquals("item is not part of the library's collection", library.checkOutItem("Java Rocks"));
@@ -73,8 +75,8 @@ public class LibraryTest {
     @Test
     public void shouldCheckInIfOnLoan() {
         Library library = new Library();
-        Item article = new Article("Java Rocks");
-        Item book = new Book("Java for Beginners");
+        Item article = new Article("Java Rocks", author);
+        Item book = new Book("Java for Beginners", author);
         Item newspaper = new Newspaper("Java Newspaper");
         library.addToStock(article);
         library.addToStock(book);
@@ -90,8 +92,8 @@ public class LibraryTest {
     @Test
     public void shouldDeclineCheckInIfNotOnLoan() {
         Library library = new Library();
-        Item article = new Article("Java Rocks");
-        Item book = new Book("Java for Beginners");
+        Item article = new Article("Java Rocks", author);
+        Item book = new Book("Java for Beginners", author);
         library.addToStock(article);
         library.addToStock(book);
 
@@ -102,8 +104,8 @@ public class LibraryTest {
     @Test
     public void shouldDeclineCheckInIfNotPartOfLibraryCollection() {
         Library library = new Library();
-        Item article = new Article("Java Rocks");
-        Item book = new Book("Java for Beginners");
+        Item article = new Article("Java Rocks", author);
+        Item book = new Book("Java for Beginners", author);
         Item newspaper = new Newspaper("Java Newspaper");
 
         Assertions.assertEquals("item is not part of the library's collection", library.checkInItem(article.title));
