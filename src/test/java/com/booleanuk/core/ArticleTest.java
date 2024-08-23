@@ -6,30 +6,34 @@ import org.junit.jupiter.api.Test;
 class ArticleTest {
     @Test
     public void shouldCheckOutIfAvailable() {
-        Article article = new Article("JUnit Rocks");
-        Assertions.assertEquals("item has been checked out", article.checkOut());
+        Author author = new Author("Dave", "12345678", "Dave@Java.com");
+        Article article = new Article("JUnit Rocks", author);
+        Assertions.assertEquals("Item has been checked out.", article.checkOut());
     }
 
     @Test
     public void shouldDeclineIfNotAvailableToCheckout() {
-        Article article = new Article("JUnit Rocks");
+        Author author = new Author("Dave", "12345678", "Dave@Java.com");
+        Article article = new Article("JUnit Rocks", author);
         article.checkOut();
 
-        Assertions.assertEquals("item is currently on loan", article.checkOut());
+        Assertions.assertEquals("Item is currently on loan.", article.checkOut());
     }
 
     @Test
     public void shouldCheckInIfOnLoan() {
-        Article article = new Article("JUnit Rocks");
+        Author author = new Author("Dave", "12345678", "Dave@Java.com");
+        Article article = new Article("JUnit Rocks", author);
         article.checkOut();
 
-        Assertions.assertEquals("item has been checked in", article.checkIn());
+        Assertions.assertEquals("Item has been checked in.", article.checkIn());
     }
 
     @Test
     public void shouldDeclineCheckInIfNotOnLoan() {
-        Article article = new Article("JUnit Rocks");
+        Author author = new Author("Dave", "12345678", "Dave@Java.com");
+        Article article = new Article("JUnit Rocks", author);
 
-        Assertions.assertEquals("item is not currently on loan", article.checkIn());
+        Assertions.assertEquals("Item is not currently on loan.", article.checkIn());
     }
 }
