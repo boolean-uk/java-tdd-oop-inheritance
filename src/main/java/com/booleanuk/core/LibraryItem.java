@@ -10,6 +10,10 @@ public abstract class LibraryItem {
         this.onLoan = false;
     }
 
+    public String getTitle() {
+        return title;
+    }
+
     public boolean isOnLoan() {
         return onLoan;
     }
