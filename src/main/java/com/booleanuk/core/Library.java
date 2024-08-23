@@ -5,6 +5,10 @@ import java.util.List;
 public class Library {
     List<LibraryItem> items;
 
+    public Library(List<LibraryItem> items) {
+        this.items = items;
+    }
+
     public void addToStock(LibraryItem item) {
         this.items.add(item);
     }
