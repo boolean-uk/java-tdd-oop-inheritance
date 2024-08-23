@@ -3,20 +3,10 @@ package com.booleanuk.core;
 import java.util.List;
 
 public class Library {
-    List<Article> articles;
-    List<Book> books;
-    List<Newspaper> newspapers;
+    List<LibraryItem> items;
 
-    public void addToStock(Article item) {
-        this.articles.add(item);
-    }
-
-    public void addToStock(Book item) {
-        this.books.add(item);
-    }
-
-    public void addToStock(Newspaper item) {
-        this.newspapers.add(item);
+    public void addToStock(LibraryItem item) {
+        this.items.add(item);
     }
 
     // The following methods may contain code that you are unfamiliar with. The strange syntax of article -> something
