@@ -1,35 +1,20 @@
 package com.booleanuk.core;
 
-public class Article {
-    String title;
+import java.util.List;
 
-    boolean onLoan = false;
+public class Article extends LoanItem {
+    private List<Author> authors;
 
     public Article(String title) {
-        this.title = title;
+        super(title);
     }
 
-    public boolean isOnLoan() {
-        return onLoan;
+    public Article(String title, List<Author> authors) {
+        super(title);
+        this.authors = authors;
     }
 
-    public String checkIn() {
-        if (!this.isOnLoan()) {
-            return "item is not currently on loan";
-        }
-
-        this.onLoan = false;
-
-        return "item has been checked in";
-    }
-
-    public String checkOut() {
-        if (this.isOnLoan()) {
-            return "item is currently on loan";
-        }
-
-        this.onLoan = true;
-
-        return "item has been checked out";
+    public List<Author> authors() {
+        return this.authors;
     }
 }
