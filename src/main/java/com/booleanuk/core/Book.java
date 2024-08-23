@@ -1,6 +1,6 @@
 package com.booleanuk.core;
 
-public class Book extends ReadingMaterial{
+public class Book extends RentableReadingMaterial{
     public Book(String title) {
         super(title);
     }
