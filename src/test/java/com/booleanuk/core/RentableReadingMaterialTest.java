@@ -3,11 +3,11 @@ package com.booleanuk.core;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class ReadingMaterialTest {
+public class RentableReadingMaterialTest {
     @Test
     public void shouldCheckOutIfAvailable() {
         Book book = new Book("JUnit Rocks");
-        Assertions.assertEquals("item has been checked out", book.checkOut());
+        Assertions.assertEquals("Item has been checked out.", book.checkOut());
     }
 
     @Test
@@ -15,7 +15,7 @@ public class ReadingMaterialTest {
         Book book = new Book("JUnit Rocks");
         book.checkOut();
 
-        Assertions.assertEquals("item is currently on loan", book.checkOut());
+        Assertions.assertEquals("Item is currently on loan.", book.checkOut());
     }
 
     @Test
@@ -23,13 +23,13 @@ public class ReadingMaterialTest {
         Book book = new Book("JUnit Rocks");
         book.checkOut();
 
-        Assertions.assertEquals("item has been checked in", book.checkIn());
+        Assertions.assertEquals("Item has been checked in.", book.checkIn());
     }
 
     @Test
     public void shouldDeclineCheckInIfNotOnLoan() {
         Book book = new Book("JUnit Rocks");
 
-        Assertions.assertEquals("item is not currently on loan", book.checkIn());
+        Assertions.assertEquals("Item is not currently on loan.", book.checkIn());
     }
 }

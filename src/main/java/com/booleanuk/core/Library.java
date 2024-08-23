@@ -1,9 +1,14 @@
 package com.booleanuk.core;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Library {
     List<RentableReadingMaterial> rentableReadingMaterials;
+
+    public Library(){
+        this.rentableReadingMaterials = new ArrayList<>();
+    }
 
     public void addToStock(RentableReadingMaterial rentableReadingMaterial) {
         this.rentableReadingMaterials.add(rentableReadingMaterial);
@@ -17,7 +22,7 @@ public class Library {
                 .toList();
 
         if (filtered.isEmpty()) {
-            return "item is not part of the library's collection";
+            return "Item is not part of the library's collection.";
         }
 
         return filtered.getFirst().checkIn();
@@ -29,7 +34,7 @@ public class Library {
                 .toList();
 
         if (filtered.isEmpty()) {
-            return "item is not part of the library's collection";
+            return "Item is not part of the library's collection.";
         }
 
         return filtered.getFirst().checkOut();
