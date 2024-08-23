@@ -1,9 +1,9 @@
 package com.booleanuk.core;
 
 public class ReadingMaterial {
-    String title;
+    protected String title;
 
-    boolean onLoan = false;
+    protected boolean onLoan = false;
 
     public ReadingMaterial(String title) {
         this.title = title;
