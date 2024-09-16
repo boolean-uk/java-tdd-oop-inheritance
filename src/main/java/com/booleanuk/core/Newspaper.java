@@ -1,16 +1,9 @@
 package com.booleanuk.core;
 
-public class Newspaper {
-    String title;
-
-    boolean onLoan = false;
+public class Newspaper extends LibraryItem{
 
     public Newspaper(String title) {
-        this.title = title;
-    }
-
-    public boolean isOnLoan() {
-        return onLoan;
+        super(title);
     }
 
     public String checkIn() {
@@ -19,5 +12,9 @@ public class Newspaper {
 
     public String checkOut() {
         return "newspapers are not available for loan";
+    }
+
+    public String getAuthor() {
+        return "Newspapers have multiple authors";
     }
 }
