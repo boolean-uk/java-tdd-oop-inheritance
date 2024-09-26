@@ -1,16 +1,13 @@
 package com.booleanuk.core;
 
-public class Book {
-    String title;
+import java.lang.reflect.Type;
 
-    boolean onLoan = false;
+public class Book extends Media{
+   Author author;
 
-    public Book(String title) {
-        this.title = title;
-    }
-
-    public boolean isOnLoan() {
-        return onLoan;
+    public Book(String title, Author author) {
+        super(title);
+        this.author = author;
     }
 
     public String checkIn() {
